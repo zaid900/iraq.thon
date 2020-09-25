@@ -1,4 +1,4 @@
-FILE= .git
+FILE=.git
 if [ -d "$FILE" ]
 then
     echo "$FILE directory exists already."
