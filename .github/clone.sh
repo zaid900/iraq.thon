@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Copyright (C) 2020 by sandy1709
+
 FILE=.git
 if [ -d "$FILE" ]
 then
