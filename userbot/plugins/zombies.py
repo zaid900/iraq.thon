@@ -53,7 +53,6 @@ async def rm_deletedacc(show):
     )
     del_u = 0
     del_a = 0
-
     async for user in show.client.iter_participants(show.chat_id):
         if user.deleted:
             try:
@@ -65,20 +64,14 @@ async def rm_deletedacc(show):
             except UserAdminInvalidError:
                 del_u -= 1
                 del_a += 1
-            await show.client(EditBannedRequest(show.chat_id, user.id, UNBAN_RIGHTS))
-            del_u += 1
-
     if del_u > 0:
         del_status = f"Cleaned **{del_u}** deleted account(s)"
-
     if del_a > 0:
         del_status = f"Cleaned **{del_u}** deleted account(s) \
         \n**{del_a}** deleted admin accounts are not removed"
-
     await event.edit(del_status)
-    await sleep(2)
+    await sleep(5)
     await show.delete()
-
     if BOTLOG:
         await show.client.send_message(
             BOTLOG_CHATID,
