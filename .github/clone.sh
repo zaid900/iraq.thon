@@ -2,7 +2,7 @@
 
 # Copyright (C) 2020 by sandy1709
 
-FILE=.git
+FILE=/app/.git
 if [ -d "$FILE" ]
 then
     echo "$FILE directory exists already."
