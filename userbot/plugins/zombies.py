@@ -10,8 +10,6 @@ Use .zombies clean to remove deleted accounts from the groups and channels.
 from asyncio import sleep
 
 from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
-from telethon.tl.functions.channels import EditBannedRequest
-from telethon.tl.types import ChatBannedRights
 
 from .. import CMD_HELP
 from ..utils import admin_cmd, edit_or_reply, sudo_cmd
@@ -21,32 +19,6 @@ if Config.PRIVATE_GROUP_BOT_API_ID is None:
 else:
     BOTLOG = True
     BOTLOG_CHATID = Config.PRIVATE_GROUP_BOT_API_ID
-
-# =================== CONSTANT ===================
-
-BANNED_RIGHTS = ChatBannedRights(
-    until_date=None,
-    view_messages=True,
-    send_messages=True,
-    send_media=True,
-    send_stickers=True,
-    send_gifs=True,
-    send_games=True,
-    send_inline=True,
-    embed_links=True,
-)
-
-
-UNBAN_RIGHTS = ChatBannedRights(
-    until_date=None,
-    send_messages=None,
-    send_media=None,
-    send_stickers=None,
-    send_gifs=None,
-    send_games=None,
-    send_inline=None,
-    embed_links=None,
-)
 
 
 @borg.on(admin_cmd(pattern=f"zombies ?(.*)"))
@@ -85,9 +57,8 @@ async def rm_deletedacc(show):
     async for user in show.client.iter_participants(show.chat_id):
         if user.deleted:
             try:
-                await show.client(
-                    EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS)
-                )
+                await show.client.kick_participant(show.chat_id, show.id)
+                await sleep(0.5)
             except ChatAdminRequiredError:
                 await event.edit("`I don't have ban rights in this group`")
                 return
