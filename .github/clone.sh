@@ -7,8 +7,8 @@ if [ -d "$FILE" ]
 then
     echo "$FILE directory exists already."
 else
-  git clone -b main https://github.com/sandy1709/catuserbot catt
-  mv catt/.git .git
+  git clone -b main https://github.com/sandy1709/catuserbot catuserbot
+  mv catuserbot/.git .git
   rm -rf catt
 fi
 
