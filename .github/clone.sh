@@ -34,7 +34,7 @@ else
     mv cat_ub/.git .
     mv cat_ub/userbot .
     rm -rf cat_ub
-    pip install -r requirements.txt
+    python ./.github/update.py
 fi
 
 python -m userbot
