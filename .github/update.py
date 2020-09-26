@@ -10,7 +10,7 @@ async def update_requirements():
     except BaseException:
         print("Error while updating pip")
     try:
-        await runcmd(catcmd)
+        await runcmd("pip install -r requirements.txt")
         print("Succesfully requiremenst are upto-date")
     except BaseException:
         print("Error while installing requirments")
