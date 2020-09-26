@@ -6,6 +6,7 @@ requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), "requirements.txt"
 )
 
+
 async def update_requirements():
     reqs = str(requirements_path)
     try:
@@ -18,5 +19,6 @@ async def update_requirements():
         return process.returncode
     except Exception as e:
         return repr(e)
-    
+
+
 await update_requirements()
