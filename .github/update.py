@@ -21,4 +21,4 @@ async def update_requirements():
         return repr(e)
 
 
-await update_requirements()
+update_requirements()
