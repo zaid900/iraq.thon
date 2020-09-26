@@ -26,8 +26,10 @@ echo "
 
 if [[ -n $HEROKU_API_KEY && -n $HEROKU_APP_NAME ]]; then
     herokuErr=$(python ./.github/herokugiturl.py)
-    [[ $herokuErr ]] && quit "heroku response > $herokuErr"
-    declare -g HEROKU_GIT_URL="https://api:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git"
+    if [[ "$herokuErr" ]]; then 
+        echo "$herokuErr"
+    else
+        HEROKU_GIT_URL="https://api:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git"
 fi
 
 FILE=/app/.git
