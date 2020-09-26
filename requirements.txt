@@ -67,3 +67,4 @@ validators
 wand
 wikipedia
 youtube-dl
+pytube
