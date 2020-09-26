@@ -39,9 +39,9 @@ if [ -d "$FILE" ] ; then
     echo "$FILE directory exists already."
 else
     if [ -z "$HEROKU_GIT_URL" ]; then
-        gitClone "$HEROKU_GIT_URL" cat_ub || quit "Invalid HEROKU_API_KEY or HEROKU_APP_NAME var !"
-        mv cat_ub/.git .
-        rm -rf cat_ub
+        git clone "$HEROKU_GIT_URL" cat_ubh || git clone -b main https://github.com/sandy1709/catuserbot cat_ubc
+        mv cat_ubh/.git . || mv cat_ubc/.git .
+        rm -rf cat_ubh || rm -rf cat_ubc
     else
         git clone -b main https://github.com/sandy1709/catuserbot cat_ub
         mv cat_ub/.git .
