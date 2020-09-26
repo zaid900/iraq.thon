@@ -21,4 +21,4 @@ async def update_requirements():
         return repr(e)
 
 
-update_requirements()
+asyncio.run(update_requirements())
