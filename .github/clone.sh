@@ -38,7 +38,7 @@ FILE=/app/.git
 if [ -d "$FILE" ] ; then
     echo "$FILE directory exists already."
 else
-    if [ -z "$HEROKU_GIT_URL" ]; then
+    if [[ "$HEROKU_GIT_URL" ]]; then
         git clone "$HEROKU_GIT_URL" cat_ubh || git clone -b main https://github.com/sandy1709/catuserbot cat_ubc
         mv cat_ubh/.git . || mv cat_ubc/.git .
         rm -rf cat_ubh || rm -rf cat_ubc
