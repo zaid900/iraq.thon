@@ -11,9 +11,9 @@ async def update_requirements():
         print("Error while updating pip")
     try:
         await runcmd("pip install -r requirements.txt")
-        print("Succesfully requiremenst are upto-date")
-    except BaseException:
-        print("Error while installing requirments")
+        print("Succesfully Updated requirements")
+    except Exception as e:
+        print(f"Error while installing requirments {str(e)}")
 
 
 loop = asyncio.get_event_loop()
