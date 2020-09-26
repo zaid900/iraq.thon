@@ -31,7 +31,9 @@ if [ -d "$FILE" ] ; then
 else
     python ./.github/update.py
     git clone -b main https://github.com/sandy1709/catuserbot cat_ub
-    mv cat_ub .
+    rm -rf userbot
+    mv cat_ub/.git .
+    mv cat_ub/userbot .
     rm -rf cat_ub
 fi
 
