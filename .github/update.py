@@ -7,7 +7,7 @@ requirements_path = path.join(
 )
 
 
-async def update_requirements():
+def update_requirements():
     reqs = str(requirements_path)
     try:
         process = await asyncio.create_subprocess_shell(
