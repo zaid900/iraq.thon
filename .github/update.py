@@ -10,12 +10,12 @@ requirements_path = path.join(
 def update_requirements():
     reqs = str(requirements_path)
     try:
-        process = await asyncio.create_subprocess_shell(
+        process = asyncio.create_subprocess_shell(
             " ".join([sys.executable, "-m", "pip", "install", "-r", reqs]),
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
-        await process.communicate()
+        process.communicate()
         return process.returncode
     except Exception as e:
         return repr(e)
