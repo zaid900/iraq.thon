@@ -4,7 +4,7 @@ import asyncio
 async def update_requirements():
     try:
         await runcmd("pip install --upgrade pip")
-        print("Pip is upto-date)
+        print("Pip is upto-date")
     except BaseException:
         print("Error while updating pip")          
     try:
