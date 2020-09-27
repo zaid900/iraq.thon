@@ -24,7 +24,7 @@
     },
     "ALIVE_NAME": {
       "description": "give your name",
-      "value": ""
+      "value": "@iraqthon"
     },
     "APP_ID": {
       "description": "Get this value from my.telegram.org! Please do not steal",
@@ -56,14 +56,9 @@
       "value": "6",
       "required": false
     },
-    "OCR_SPACE_API_KEY": {
-      "description": "Required for OCR functionality. Get from https://ocr.space/ocrapi",
-      "value": "",
-      "required": false
-    },
     "ALIVE_PIC": {
       "description": "the pic that to show in your alive message url.",
-      "value": "",
+      "value": "https://telegra.ph/file/5ac2de4509d2c96ec2df7.jpg",
       "required": false
     },
     "TZ": {
